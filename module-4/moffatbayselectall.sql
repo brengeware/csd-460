@@ -1,6 +1,6 @@
---Brennan Cheatwood 9/28/26
+-- Brennan Cheatwood 9/28/26
 -- GROUP A 
---CSD460 - Moffat Bay - SELECT *
+-- CSD460 - Moffat Bay - SELECT *
 
 USE CSD460;
 

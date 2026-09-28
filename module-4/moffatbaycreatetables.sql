@@ -1,12 +1,12 @@
---Brennan Cheatwood 9/28/26
+-- Brennan Cheatwood 9/28/26
 -- GROUP A
---CSD460 - Moffat Bay - Create Tables
---Creates the tables for the Moffat Bay database
+-- CSD460 - Moffat Bay - Create Tables
+-- Creates the tables for the Moffat Bay database
 
 CREATE DATABASE IF NOT EXISTS CSD460;
 USE CSD460;
 
---USERS TABLE
+-- USERS TABLE
 
 CREATE TABLE users (
     user_id INT PRIMARY KEY AUTO_INCREMENT,
@@ -20,9 +20,11 @@ CREATE TABLE users (
 -- ROOM SIZES TABLE
 
 
---waiting for daniel
-
-
+CREATE TABLE room_sizes (
+	size_id INT PRIMARY KEY AUTO_INCREMENT,
+	name VARCHAR(50) NOT NULL,
+	price DECIMAL(5, 2) NOT NULL
+);
 
 -- RESERVATIONS TABLE
 
