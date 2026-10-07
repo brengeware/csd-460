@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.security.SecureRandom, javax.crypto.spec.PBEKeySpec, javax.crypto.SecretKeyFactory, java.util.HexFormat, java.security.NoSuchAlgorithmException,
+    java.security.spec.InvalidKeySpecException"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,9 +8,33 @@
 <title>Insert title here</title>
 </head>
 <body>
-
 	<jsp:useBean id = "database" class = "beans.DatabaseBean" />
+	<%!
+		private byte[] generateSalt(int length) {
+			byte[] salt = new byte[length];
+			new SecureRandom().nextBytes(salt);
+			return salt;
+		}
+	%>
+	<%!
+		private String hashPassword(String password, byte[] salt, int iterations, int key_size, String algorithm) throws NoSuchAlgorithmException, InvalidKeySpecException {
+			PBEKeySpec keySpec = new PBEKeySpec(password.toCharArray(), salt, iterations, key_size);
+			try{
+				SecretKeyFactory keyFactory = SecretKeyFactory.getInstance(algorithm);
+				byte[] passwordBytes = keyFactory.generateSecret(keySpec).getEncoded();
+				return HexFormat.of().withUpperCase().formatHex(passwordBytes);
+			} finally {
+				keySpec.clearPassword();
+			}			
+		}
+	%>
 	<%
+		// Hashing parameters
+		final int ITERATIONS = 600_000;
+		final int SALT_LENGTH = 16; // Length in bytes; 128 bits
+		final int HASH_LENGTH = 256; // Length in bits
+		final String ALGORITHM = "PBKDF2WithHmacSHA256";
+		
 		// Sets all parameters to variables for ease of use
 		String firstName = request.getParameter("firstName");
 		String lastName = request.getParameter("lastName");
@@ -41,6 +66,12 @@
 		if (!password.equals(confirmPassword)) {
 			out.print("Password mismatch<br>");
 		}
+		
+		byte[] salt = generateSalt(SALT_LENGTH);
+		
+		out.print("Salt: " + HexFormat.of().withUpperCase().formatHex(salt) + "<br>");
+		out.print("Hash: " + hashPassword(password, salt, ITERATIONS, HASH_LENGTH, ALGORITHM) + "<br>");
+		
 		
 		// Tries to connect to the database. Prints an error on failure
 		if (database.connectToDatabase()) {
