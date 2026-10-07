@@ -32,7 +32,7 @@
 			<input type = email id = emailAddress name = emailAddress value = <%= session.getAttribute("emailAddress") %>>
 			<label for = phoneNumber>Phone Number</label>
 			<input type = tel id = phoneNumber name = phoneNumber value = <%= session.getAttribute("phoneNumber") %>>
-			<label for = password>Password</label>
+			<label for = password)>Password  (Must be at least 8 characters long and contain at least 1 uppercase letter, 1 lowercase letter, and 1 number)</label>
 			<input type = password id = password name = password value = <%= session.getAttribute("password") %>>
 			<label for = confirmPassword>Confirm Password</label>
 			<input type = password id = confirmPassword name = confirmPassword value = <%= session.getAttribute("confirmPassword") %>>
