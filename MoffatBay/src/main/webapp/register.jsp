@@ -2,6 +2,7 @@
 JSP page for user registration form -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
+<%@ taglib prefix = "navbar" uri = "WEB-INF/tlds/NavigationBarTld.tld" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,6 +11,9 @@ JSP page for user registration form -->
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+	<header>
+		<navbar:NavigationBar />
+	</header>
 <%
   // Creates an array of attributes for all fields
   String[] attributes = {"firstName", "lastName", "emailAddress", "phoneNumber", "password", "confirmPassword"};
@@ -79,12 +83,10 @@ JSP page for user registration form -->
     if (session.getAttribute("registrationErrorMessage") != null) {
       out.print(session.getAttribute("registrationErrorMessage"));
       session.removeAttribute("registrationErrorMessage");
-    }
-  %>
-  <%
-    // Removes all attributes
-    for (String attribute : attributes)	{
-      session.removeAttribute(attribute);
+      // Removes all remaining attributes
+      for (String attribute : attributes)	{
+        session.removeAttribute(attribute);
+    	}
     }
   %>
 

@@ -1,3 +1,4 @@
+<%@ taglib prefix = "navbar" uri = "WEB-INF/tlds/NavigationBarTld.tld" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,40 +9,7 @@
 </head>
 <body>
     <header>
-        <div class="navbar">
-            <div class="logo">
-                <a href="moffatbayindex.html"><img src="logo.png" alt="Moffat Bay Logo"></a>
-                <a href="moffatbayindex.html">Moffat Bay <br>Resort</a>
-            </div>
-            <div class="navlink">
-                <a href="#">Book Your <br>Vacation</a>
-                <a href="#">View Your <br>Reservation</a>
-                <a href="#">Attractions</a>
-                <a href="#">About Us</a>
-                <a href="#">Contact Us</a>
-            </div>
-            <div class="navbutton">
-<%
-    // If a user is logged in, shows a welcome and Logout instead of Login/Register
-    if (session.getAttribute("username") != null) {
-        String welcomeName = (String) session.getAttribute("userFirstName");
-        if (welcomeName == null) {
-            welcomeName = (String) session.getAttribute("username"); // Registration only saves the email
-        }
-        welcomeName = welcomeName.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;");
-%>
-                <div class="button"><span>Welcome, <%= welcomeName %></span></div>
-                <div class="button"><a href="logout.jsp" class="login">Logout</a></div>
-<%
-    } else {
-%>
-                <div class="button"><a href="login.jsp" class="login">Login</a></div>
-                <div class="button"><a href="register.jsp" class="register">Register</a></div>
-<%
-    }
-%>
-            </div>
-        </div>
+        <navbar:NavigationBar />
     </header>
     <div style="text-align: center;"><img src="lakeview.png" alt="Lake View" style="width: 75%;"></div>
     <div class="container">
