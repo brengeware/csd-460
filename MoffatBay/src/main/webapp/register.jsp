@@ -50,7 +50,7 @@ JSP page for user registration form -->
     </div>
 
     <div class = "form-group">
-      <input type = button onclick = "location.href='index.jsp'" value = "Login with an existing account">
+      <input type = button onclick = "location.href='login.jsp'" value = "Login with an existing account">
     </div>
 
   </div>
@@ -76,8 +76,7 @@ JSP page for user registration form -->
     <input type = submit value = "Register">
    </div>
   </div>
-  </form>
-
+  <div style="flex-basis: 100%; height = 0; text-align: center;"><!-- Used to hold the error message -->
   <%
     // Prints the error message if it exists
     if (session.getAttribute("registrationErrorMessage") != null) {
@@ -89,6 +88,8 @@ JSP page for user registration form -->
     	}
     }
   %>
+  </div>
+</form>
 
 <div style="text-align: center;">
   <button onclick="window.location.href='index.jsp';">
