@@ -76,8 +76,12 @@
 		if (MessageDigest.isEqual(storedHash, enteredHash)) {
 			request.changeSessionId(); // New session ID after login to prevent session fixation
 			session.setAttribute("username", email); // Same attribute registration.jsp uses
+<<<<<<< HEAD
 			session.setAttribute("firstName", database.getFirstName(email)); // Not "firstName", since register.jsp uses and clears that one
 			session.setAttribute("loggedIn", "True");
+=======
+			session.setAttribute("userFirstName", database.getFirstName(email)); // Not "firstName", since register.jsp uses and clears that one
+>>>>>>> 5a32fd483119fd27eddedb857266b27ac8a574b8
 			session.removeAttribute("loginErrorMessage");
 			session.removeAttribute("loginEmail");
 			response.sendRedirect("index.jsp");

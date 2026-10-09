@@ -2,7 +2,10 @@
 JSP page for user login form -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
+<<<<<<< HEAD
 <%@ taglib prefix = "navbar" uri = "WEB-INF/tlds/NavigationBarTld.tld" %>
+=======
+>>>>>>> 5a32fd483119fd27eddedb857266b27ac8a574b8
 <!DOCTYPE html>
 <html>
 	<head>
@@ -11,9 +14,12 @@ JSP page for user login form -->
 		<link rel="stylesheet" href="styles.css">
 	</head>
 	<body>
+<<<<<<< HEAD
 	<header>
 		<navbar:NavigationBar />
 	</header>
+=======
+>>>>>>> 5a32fd483119fd27eddedb857266b27ac8a574b8
 <%
 	// Gets the email from a failed attempt (if any) so it can be put back in the field
 	// Uses HTML escaping so a quote in the email cannot break out of the value attribute

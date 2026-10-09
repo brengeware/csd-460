@@ -109,8 +109,11 @@
 
 			if (success) {// If successfully registered, logs the user in and redirects to the home page
 				session.setAttribute("username", emailAddress);// Uses the entered email as the username to avoid unnecessary database queries
+<<<<<<< HEAD
 				session.setAttribute("firstName", firstName);// Sets the first name
 				session.setAttribute("loggedIn", "True");// Logs the user in
+=======
+>>>>>>> 5a32fd483119fd27eddedb857266b27ac8a574b8
 				response.sendRedirect("index.jsp");
 			} else {
 				returnWithError(session, request, response, "An unknown error occurred", URL);

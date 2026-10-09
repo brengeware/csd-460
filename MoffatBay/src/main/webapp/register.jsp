@@ -2,7 +2,10 @@
 JSP page for user registration form -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
+<<<<<<< HEAD
 <%@ taglib prefix = "navbar" uri = "WEB-INF/tlds/NavigationBarTld.tld" %>
+=======
+>>>>>>> 5a32fd483119fd27eddedb857266b27ac8a574b8
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,9 +14,12 @@ JSP page for user registration form -->
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<<<<<<< HEAD
 	<header>
 		<navbar:NavigationBar />
 	</header>
+=======
+>>>>>>> 5a32fd483119fd27eddedb857266b27ac8a574b8
 <%
   // Creates an array of attributes for all fields
   String[] attributes = {"firstName", "lastName", "emailAddress", "phoneNumber", "password", "confirmPassword"};
@@ -50,7 +56,11 @@ JSP page for user registration form -->
     </div>
 
     <div class = "form-group">
+<<<<<<< HEAD
       <input type = button onclick = "location.href='login.jsp'" value = "Login with an existing account">
+=======
+      <input type = button onclick = "location.href='index.jsp'" value = "Login with an existing account">
+>>>>>>> 5a32fd483119fd27eddedb857266b27ac8a574b8
     </div>
 
   </div>
@@ -76,12 +86,18 @@ JSP page for user registration form -->
     <input type = submit value = "Register">
    </div>
   </div>
+<<<<<<< HEAD
   <div style="flex-basis: 100%; height = 0; text-align: center;"><!-- Used to hold the error message -->
+=======
+  </form>
+
+>>>>>>> 5a32fd483119fd27eddedb857266b27ac8a574b8
   <%
     // Prints the error message if it exists
     if (session.getAttribute("registrationErrorMessage") != null) {
       out.print(session.getAttribute("registrationErrorMessage"));
       session.removeAttribute("registrationErrorMessage");
+<<<<<<< HEAD
       // Removes all remaining attributes
       for (String attribute : attributes)	{
         session.removeAttribute(attribute);
@@ -90,6 +106,16 @@ JSP page for user registration form -->
   %>
   </div>
 </form>
+=======
+    }
+  %>
+  <%
+    // Removes all attributes
+    for (String attribute : attributes)	{
+      session.removeAttribute(attribute);
+    }
+  %>
+>>>>>>> 5a32fd483119fd27eddedb857266b27ac8a574b8
 
 <div style="text-align: center;">
   <button onclick="window.location.href='index.jsp';">

@@ -148,7 +148,10 @@ hr {
     border: 1px solid #ccc;
     border-radius: 8px;
     background-color: #f9f9f9;
+<<<<<<< HEAD
     flex-wrap:wrap;
+=======
+>>>>>>> 5a32fd483119fd27eddedb857266b27ac8a574b8
 }
 
 .form-column {
