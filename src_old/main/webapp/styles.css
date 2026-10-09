@@ -1,0 +1,193 @@
+body {
+    font-family: Georgia, serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7feda;
+}
+
+button {
+    font-family: Georgia, serif;
+}
+
+header {
+    background-color: #0077cc;
+    color: white;
+    display: flex;
+}
+
+p {
+    font-size: 1.2rem;
+}
+
+header img {
+    height: 50px;
+    margin: 0px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    width: 100%;
+}
+
+.navbar .logo {
+    display: flex;
+    align-items: center;
+    background-color: #005f8a;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.navbar a {
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    padding: 2px 8px;
+}
+
+.navlink {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.navbar .navbutton {
+    display: flex;
+    margin-left: auto;
+}
+
+.button {
+    background-color: #005f8a;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+}
+
+.login {
+    display: flex;
+    background-color: transparent;
+    color: white;
+}
+
+.register {
+    display: flex;
+    color: white;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+}
+
+.section {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.left, .right {
+    flex: 1;
+    padding: 10px;
+    text-align: center;
+}
+
+footer {
+    background-color: #004d00;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+footer p {
+    font-size: 1rem;
+}
+
+.foota {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-content div {
+    flex: 1;
+}
+
+.footer-content div h4 {
+    margin: 0;
+}
+
+.footer-line {
+    border-top: 1px solid white;
+    margin: 10px 0;
+}
+
+hr {
+    border: 2px solid darkgray;
+}
+
+.form-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.form-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.submit-group {
+    margin-top: auto;
+    padding-top: 15px;
+}
+
+input[type="submit"] {
+    background-color: #04AA6D;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    padding: 10px;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
