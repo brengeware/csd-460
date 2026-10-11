@@ -32,8 +32,7 @@ public class NavigationBarTag extends SimpleTagSupport {
 		}
 	        
 		// First part of the navigation bar
-		String opening =
-				"""
+		String opening = """
 				<div class="navbar">
 					<div class="logo">
 		                <a href="index.jsp"><img src="logo.png" alt="Moffat Bay Logo"></a>
