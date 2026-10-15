@@ -1,7 +1,8 @@
-<%@ taglib prefix = "navbar" uri = "WEB-INF/tlds/NavigationBarTld.tld" %><!DOCTYPE html>
+<%@ taglib prefix = "navbar" uri = "WEB-INF/tlds/NavigationBarTld.tld" %>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+    <head>
+        <meta charset="UTF-8">
 
     <title>Moffat Bay Resort</title>
     <link rel="stylesheet" href="styles.css">
