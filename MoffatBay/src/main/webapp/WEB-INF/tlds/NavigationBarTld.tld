@@ -1,0 +1,8 @@
+<taglib>
+	<tlib-version>1.0</tlib-version>
+	<jsp-version>2.0</jsp-version>
+	<short-name>Navigation Bar</short-name>
+	<tag>
+		<name>NavigationBar</name>
+		<tag-class>tags.NavigationBarTag</tag-class>
+		<body-content>empty</body-content></tag></taglib>

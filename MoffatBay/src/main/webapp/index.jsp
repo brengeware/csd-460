@@ -1,49 +1,23 @@
+
+<%@ taglib prefix = "navbar" uri = "WEB-INF/tlds/NavigationBarTld.tld" %>
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    
-    <title>Moffat Bay Resort</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <header>
-        <div class="navbar">
-            <div class="logo">
-                <a href="moffatbayindex.html"><img src="logo.png" alt="Moffat Bay Logo"></a>
-                <a href="moffatbayindex.html">Moffat Bay <br>Resort</a>
-            </div>
-            <div class="navlink">
-                <a href="#">Book Your <br>Vacation</a>
-                <a href="#">View Your <br>Reservation</a>
-                <a href="#">Attractions</a>
-                <a href="#">About Us</a>
-                <a href="#">Contact Us</a>
-            </div>
-            <div class="navbutton">
-<%
-    // If a user is logged in, shows a welcome and Logout instead of Login/Register
-    if (session.getAttribute("username") != null) {
-        String welcomeName = (String) session.getAttribute("userFirstName");
-        if (welcomeName == null) {
-            welcomeName = (String) session.getAttribute("username"); // Registration only saves the email
-        }
-        welcomeName = welcomeName.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;");
-%>
-                <div class="button"><span>Welcome, <%= welcomeName %></span></div>
-                <div class="button"><a href="logout.jsp" class="login">Logout</a></div>
-<%
-    } else {
-%>
-                <div class="button"><a href="login.jsp" class="login">Login</a></div>
-                <div class="button"><a href="register.jsp" class="register">Register</a></div>
-<%
-    }
-%>
-            </div>
-        </div>
-    </header>
-    <div style="text-align: center;"><img src="lakeview.png" alt="Lake View" style="width: 75%;"></div>
+    <head>
+        <meta charset="UTF-8">
+        
+        <title>Moffat Bay Resort</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <header>
+            <navbar:NavigationBar />
+        </header>
+    <div style="text-align: center;">
+        <figure>
+        <img src="lakeview.png" alt="Lake View" style="width: 75%;">
+            <figcaption>Image from <a href="https://www.airbnb.com/rooms/1453087922354914768?source_impression_id=p3_1791599764_P3SMK693BEpM_Tfr&modal=PHOTO_TOUR_SCROLLABLE&modalItem=2283073223">Airbnb (Veazey Cove)</a></figcaption>
+        </figure>
+    </div>
     <div class="container">
         <h1>Moffat Bay's Premier Waterfront Resort</h1>
         <p>Relax and unwind at a lodge on Moffat Bay. With our cozy lodge cabins overlooking the serene waters of the bay, you'll find a calming resort designed to allow you to rejuvenate and recharge.</p>
@@ -53,8 +27,14 @@
     <br>
     <div class="section">
         <div class="left">
+            <figure>
             <img src="roomview.png" alt="Cozy Cabin" style="width: 70%;">
+                <figcaption>Image from <a href="https://www.artfulliving.com/montenegro-new-french-riviera/">ArtfulLiving</a></figcaption>
+            </figure>
+            <figure>
             <img src="mountview.png" alt="Mountain View" style="width: 70%;">
+                <figcaption>Image from <a href="https://www.visitglacierbay.com/lodging-camping/glacier-bay-lodge/">VisitGlacierBay</a></figcaption>
+            </figure>
         </div>
         <div class="right">
             <h1>At the Heart of It All</h1>
@@ -84,7 +64,7 @@
             </div>
         </div>
         <div class="footer-line"></div>
-        <p>© 2028 Moffat Bay, LLC. All rights reserved.</p>
+        <p>Â© 2028 Moffat Bay, LLC. All rights reserved.</p>
     </footer>
 </body>
 </html>

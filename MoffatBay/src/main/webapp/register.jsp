@@ -2,6 +2,7 @@
 JSP page for user registration form -->
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
+<%@ taglib prefix = "navbar" uri = "WEB-INF/tlds/NavigationBarTld.tld" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,6 +11,9 @@ JSP page for user registration form -->
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+	<header>
+		<navbar:NavigationBar />
+	</header>
 <%
   // Creates an array of attributes for all fields
   String[] attributes = {"firstName", "lastName", "emailAddress", "phoneNumber", "password", "confirmPassword"};
@@ -46,7 +50,7 @@ JSP page for user registration form -->
     </div>
 
     <div class = "form-group">
-      <input type = button onclick = "location.href='index.jsp'" value = "Login with an existing account">
+      <input type = button onclick = "location.href='login.jsp'" value = "Login with an existing account">
     </div>
 
   </div>
@@ -72,21 +76,20 @@ JSP page for user registration form -->
     <input type = submit value = "Register">
    </div>
   </div>
-  </form>
-
+  <div style="flex-basis: 100%; height = 0; text-align: center;"><!-- Used to hold the error message -->
   <%
     // Prints the error message if it exists
     if (session.getAttribute("registrationErrorMessage") != null) {
       out.print(session.getAttribute("registrationErrorMessage"));
       session.removeAttribute("registrationErrorMessage");
+      // Removes all remaining attributes
+      for (String attribute : attributes)	{
+        session.removeAttribute(attribute);
+    	}
     }
   %>
-  <%
-    // Removes all attributes
-    for (String attribute : attributes)	{
-      session.removeAttribute(attribute);
-    }
-  %>
+  </div>
+</form>
 
 <div style="text-align: center;">
   <button onclick="window.location.href='index.jsp';">
