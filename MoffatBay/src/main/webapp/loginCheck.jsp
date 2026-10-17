@@ -80,7 +80,15 @@
 			session.setAttribute("loggedIn", "True");
 			session.removeAttribute("loginErrorMessage");
 			session.removeAttribute("loginEmail");
-			response.sendRedirect("index.jsp");
+			
+			// If the user was sent here from the reservation pages, sends them back there. Only those pages are allowed, so this cannot be used to redirect elsewhere
+			String next = (String) session.getAttribute("loginRedirect");
+			session.removeAttribute("loginRedirect");
+			if ("reservation.jsp".equals(next) || "viewReservations.jsp".equals(next)) {
+				response.sendRedirect(next);
+			} else {
+				response.sendRedirect("index.jsp");
+			}
 		} else {
 			returnWithError(session, request, response, BAD_LOGIN);
 			return;

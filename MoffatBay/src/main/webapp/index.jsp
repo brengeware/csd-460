@@ -46,7 +46,7 @@
     <br>
     <div class="container">
         <h3>What are you waiting for? The Bay is calling! Book your room now!</h3>
-        <button class="button">Book a Reservation</button>
+        <button class="button" onclick="window.location.href='reservation.jsp';">Book a Reservation</button>
     </div>
     <br><br>
     <footer>
@@ -59,7 +59,7 @@
             </div>
             <div style="text-align: right;">
                 <p><b>Quick Links</b></p>
-                <p><a class="foota" href="#">Book a Room</a></p>
+                <p><a class="foota" href="reservation.jsp">Book a Room</a></p>
                 <p><a class="foota" href="#">Contact Us</a></p>
             </div>
         </div>

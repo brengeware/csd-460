@@ -1,4 +1,36 @@
 <%@ taglib prefix = "navbar" uri = "/WEB-INF/tlds/NavigationBarTld.tld" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" import="java.time.LocalDate"%>
+<%!	// Escapes text so it cannot be read as HTML
+	private String escape(String text) {
+		return text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace("\"", "&quot;");
+	}
+	
+	// Returns the saved session value (from a failed booking), or an empty string if there is none
+	private String saved(HttpSession session, String name) {
+		Object value = session.getAttribute(name);
+		return value == null ? "" : escape(value.toString());
+	}
+%>
+<%
+	// Only logged in users can book. Sends everyone else to log in first and brings them back afterward
+	if (!"True".equals(session.getAttribute("loggedIn")) || session.getAttribute("username") == null) {
+		session.setAttribute("loginRedirect", "reservation.jsp");
+		session.setAttribute("loginErrorMessage", "Please log in to book a reservation");
+		response.sendRedirect("login.jsp");
+		return;
+	}
+	
+	// Gets the values from a failed booking (if any) so the form can be filled back in
+	String savedStart = saved(session, "resStartDate");
+	String savedEnd = saved(session, "resEndDate");
+	String savedRooms = saved(session, "resRooms");
+	String savedGuests = saved(session, "resGuests");
+	
+	// Gets the error message (if any) and clears it so it only shows once
+	String errorMessage = (String) session.getAttribute("reservationErrorMessage");
+	session.removeAttribute("reservationErrorMessage");
+	String today = LocalDate.now().toString(); // Earliest allowed check in date
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -83,33 +115,39 @@
 
 <h1 style="text-align: center">Book a Room</h1>
 
+<% if (errorMessage != null) { %>
+<p style="text-align: center; color: red;"><%= escape(errorMessage) %></p>
+<% } %>
+
+<!-- The Select button on each room sends the whole form, including which room was picked -->
+<form action="makeReservation.jsp" method="post">
 <div class = "form-container">
     <!-- Date Range Selection -->
     <div class = "form-column">
         <div class="form-group">
             <label for="start-date">Check In:</label>
-            <input type="date" id="start-date" name="start_date" required>
+            <input type="date" id="start-date" name="start_date" min="<%= today %>" value="<%= savedStart %>" required>
         </div>
     </div>
 
     <div class = "form-column">
         <div class="form-group">
             <label for="end-date">Check Out:</label>
-            <input type="date" id="end-date" name="end_date" required>
+            <input type="date" id="end-date" name="end_date" min="<%= today %>" value="<%= savedEnd %>" required>
         </div>
     </div>
 
     <div class = "form-column">
         <div class="form-group">
             <label for="num1">How Many Rooms?</label>
-            <input type="number" id="num1" name="num1" class="two-digit" min="1" max="99" placeholder="0" required>
+            <input type="number" id="num1" name="num1" class="two-digit" min="1" max="99" placeholder="0" value="<%= savedRooms %>" required>
         </div>
     </div>
 
     <div class = "form-column">
         <div class="form-group">
             <label for="num2">How Many Guests?</label>
-            <input type="number" id="num2" name="num2" class="two-digit" min="1" max="99" placeholder="0" required>
+            <input type="number" id="num2" name="num2" class="two-digit" min="1" max="99" placeholder="0" value="<%= savedGuests %>" required>
         </div>
     </div>
 </div>
@@ -144,7 +182,7 @@
             </div>
 
             <div class="room-selection">
-                <button type="button" class="select-button">Select</button>
+                <button type="submit" name="sizeId" value="1" class="select-button">Select</button>
             </div>
         </div>
     </section>
@@ -177,7 +215,7 @@
             </div>
 
             <div class="room-selection">
-                <button type="button" class="select-button">Select</button>
+                <button type="submit" name="sizeId" value="2" class="select-button">Select</button>
             </div>
         </div>
     </section>
@@ -212,7 +250,7 @@
             </div>
 
             <div class="room-selection">
-                <button type="button" class="select-button">Select</button>
+                <button type="submit" name="sizeId" value="3" class="select-button">Select</button>
             </div>
         </div>
     </section>
@@ -246,14 +284,14 @@
             </div>
 
             <div class="room-selection">
-                <button type="button" class="select-button">Select</button>
+                <button type="submit" name="sizeId" value="4" class="select-button">Select</button>
             </div>
         </div>
     </section>
 
-    <br><br>
-    <button type="submit" style="text-align: center">Submit</button>
+    <p style="text-align: center;">Choose your dates, rooms, and guests above, then click Select on the room you want to book.</p>
 </div>
+</form>
 
 <br><br>
 <footer>

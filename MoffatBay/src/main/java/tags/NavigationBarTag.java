@@ -39,8 +39,8 @@ public class NavigationBarTag extends SimpleTagSupport {
 		                <a href="index.jsp">Moffat Bay <br>Resort</a>
 		            </div>
 		            <div class="navlink">
-		                <a href="#">Book Your <br>Vacation</a>
-		                <a href="#">View Your <br>Reservation</a>
+		                <a href="reservation.jsp">Book Your <br>Vacation</a>
+		                <a href="viewReservations.jsp">View Your <br>Reservation</a>
 		                <a href="#">Attractions</a>
 		                <a href="#">About Us</a>
 		                <a href="#">Contact Us</a>
