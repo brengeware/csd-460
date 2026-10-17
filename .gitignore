@@ -25,4 +25,4 @@ replay_pid*
 # IDE/Configuration files
 .classpath
 .project
-.settings/
+.settings/.DS_Store
