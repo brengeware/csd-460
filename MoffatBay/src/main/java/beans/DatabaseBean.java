@@ -70,8 +70,10 @@ public class DatabaseBean implements Serializable {
 			statement.executeUpdate("USE " + database);
 			return true;
 		} catch(SQLException e) {
+			e.printStackTrace();
 			return false;
 		} catch(ClassNotFoundException e) {
+			e.printStackTrace();
 			return false;
 		}
 	}
