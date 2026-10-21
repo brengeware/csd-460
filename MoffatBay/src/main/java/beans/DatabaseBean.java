@@ -265,6 +265,22 @@ public class DatabaseBean implements Serializable {
 		return preparedStatement.executeQuery();
 	}
 	
+	// Deletes a reservation according to the specified ID
+	// Returns true for a successful deletion and false otherwise
+	public boolean deleteReservationByID(int reservationID) {
+		try {
+			PreparedStatement preparedStatement = connection.prepareStatement("DELETE FROM reservations WHERE reservation_id = ?");
+			preparedStatement.setInt(1, reservationID);
+			if (preparedStatement.executeUpdate() >= 1) {
+				return true;
+			} else {
+				return false;
+			}
+		} catch (SQLException e) {
+			return false;
+		}
+	}
+	
 	// Closes the database connection. Pages should call this when they are done with the bean
 	public void closeConnection() {
 		try {

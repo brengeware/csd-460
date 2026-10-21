@@ -119,6 +119,7 @@ JSP page that shows the reservation confirmation -->
     <p><b>Total: <%= String.format("$%,.2f", grandTotal) %></b></p>
 <% } %>
     <button onclick="window.location.href='reservation.jsp';">Book Another Room</button>
+    <button onclick="window.location.href='cancelReservation.jsp'">Cancel Reservation</button>
     <button onclick="window.location.href='index.jsp';">Return Home</button>
 </div>
 
