@@ -36,21 +36,21 @@ JSP page for user registration form -->
 
     <div class = "form-group">
     <label for = firstName>First Name</label>
-    <input type = text id = firstName name = firstName value = <%= session.getAttribute("firstName") %>>
+    <input type = text tabindex = "1" id = firstName name = firstName value = "<%= session.getAttribute("firstName") %>" autofocus>
     </div>
 
     <div class = "form-group">
     <label for = emailAddress>Email Address</label>
-    <input type = email id = emailAddress name = emailAddress value = <%= session.getAttribute("emailAddress") %>>
+    <input type = email tabindex = "3" id = emailAddress name = emailAddress value = <%= session.getAttribute("emailAddress") %>>
     </div>
 
     <div class = "form-group">
       <label for = password)>Password (Minimum 8 characters, at least 1 uppercase letter, 1 lowercase letter, and 1 number)</label>
-      <input type = password id = password name = password value = <%= session.getAttribute("password") %>>
+      <input type = password tabindex = "5" id = password name = password value = <%= session.getAttribute("password") %>>
     </div>
 
     <div class = "form-group">
-      <input type = button onclick = "location.href='login.jsp'" value = "Login with an existing account">
+      <input type = button tabindex = "8" onclick = "location.href='login.jsp'" value = "Login with an existing account">
     </div>
 
   </div>
@@ -59,21 +59,21 @@ JSP page for user registration form -->
 
     <div class = "form-group">
       <label for = lastName>Last Name</label>
-      <input type = text id = lastName name = lastName value = <%= session.getAttribute("lastName") %>>
+      <input type = text tabindex = "2" id = lastName name = lastName value = <%= session.getAttribute("lastName") %>>
     </div>
 
     <div class = "form-group">
     <label for = phoneNumber>Phone Number</label>
-    <input type = tel id = phoneNumber name = phoneNumber value = <%= session.getAttribute("phoneNumber") %>>
+    <input type = tel tabindex = "4" id = phoneNumber name = phoneNumber value = <%= session.getAttribute("phoneNumber") %>>
     </div>
 
     <div class = "form-group">
     <label for = confirmPassword>Confirm Password<br>(Must match Password)<br>   </label>
-    <input type = password id = confirmPassword name = confirmPassword value = <%= session.getAttribute("confirmPassword") %>>
+    <input type = password tabindex = "6" id = confirmPassword name = confirmPassword value = <%= session.getAttribute("confirmPassword") %>>
     </div>
 
     <div class = "form-group">
-    <input type = submit value = "Register">
+    <input type = submit tabindex = "7" value = "Register">
    </div>
   </div>
   <div style="flex-basis: 100%; height = 0; text-align: center;"><!-- Used to hold the error message -->
