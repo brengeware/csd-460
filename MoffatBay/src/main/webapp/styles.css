@@ -47,6 +47,10 @@ header img {
     padding: 2px 8px;
 }
 
+.navbar a:hover {
+    background-color: #281e5d;
+}
+
 .navlink {
     display: flex;
     list-style: none;
@@ -68,6 +72,10 @@ header img {
     cursor: pointer;
     text-align: center;
     text-decoration: none;
+}
+
+.button:hover {
+    background-color: #281e5d;
 }
 
 .login {

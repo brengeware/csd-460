@@ -155,7 +155,7 @@
 <div class="roomcontainer">
     <section class = "room-option">
         <figure>
-            <img class="room-image" src="doubleview.png" alt="room with two double beds">
+            <img class="room-image" src="images/doubleview.png" alt="room with two double beds">
             <figcaption>Image from <a href="https://www.hotelfigueroa.com/rooms-suites/two-double-beds/">Hotel Figueroa</a></figcaption>
         </figure>
 
@@ -189,7 +189,7 @@
 
     <section class = "room-option">
         <figure>
-            <img class="room-image" src="1queenview.png" alt="room with a queen bed">
+            <img class="room-image" src="images/1queenview.png" alt="room with a queen bed">
             <figcaption>Image from <a href="https://lodgeatwhitefishlake.com/content/one-bedroom-suites/1c3dd881-9248-4dcd-87d9-9067a080e171">The Lodge at Whitefish Lake</a></figcaption>
         </figure>
 
@@ -222,7 +222,7 @@
 
     <section class = "room-option">
         <figure>
-            <img class="room-image" src="2queenview.png" alt="room with two queen beds">
+            <img class="room-image" src="images/2queenview.png" alt="room with two queen beds">
             <figcaption>Image from <a href="https://www.theestesparkresort.com/accomodations/mountain-view-lakeside-double-queen">The Estes Park Resort & Spa</a></figcaption>
         </figure>
 
@@ -257,7 +257,7 @@
 
     <section class="room-option">
         <figure>
-            <img class="room-image" src="kingview.png" alt="room with two double beds">
+            <img class="room-image" src="images/kingview.png" alt="room with two double beds">
             <figcaption>Image from <a href="https://www.riverhouse.com/stay/one-bedroom-suites/">Riverhouse Lodge</a></figcaption>
         </figure>
 
@@ -297,7 +297,7 @@
 <footer>
     <div class="footer-content">
         <div>
-            <p><img src="logo.png" alt="Moffat Bay Logo" width="60px" style="vertical-align: middle;"><b>Moffat Bay Resort</b></p>
+            <p><img src="images/logo.png" alt="Moffat Bay Logo" width="60px" style="vertical-align: middle;"><b>Moffat Bay Resort</b></p>
             <p>1234 Body of Water St</p>
             <p>Anytown, Anystate 12345</p>
             <p>(123) 456-7890</p>

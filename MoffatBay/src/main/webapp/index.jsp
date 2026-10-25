@@ -1,5 +1,5 @@
 
-<%@ taglib prefix = "navbar" uri = "WEB-INF/tlds/NavigationBarTld.tld" %>
+<%@ taglib prefix = "navbar" uri = "/WEB-INF/tlds/NavigationBarTld.tld" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -14,7 +14,7 @@
         </header>
     <div style="text-align: center;">
         <figure>
-        <img src="lakeview.png" alt="Lake View" style="width: 75%;">
+        <img src="images/lakeview.png" alt="Lake View" style="width: 75%;">
             <figcaption>Image from <a href="https://www.airbnb.com/rooms/1453087922354914768?source_impression_id=p3_1791599764_P3SMK693BEpM_Tfr&modal=PHOTO_TOUR_SCROLLABLE&modalItem=2283073223">Airbnb (Veazey Cove)</a></figcaption>
         </figure>
     </div>
@@ -28,11 +28,11 @@
     <div class="section">
         <div class="left">
             <figure>
-            <img src="roomview.png" alt="Cozy Cabin" style="width: 70%;">
+            <img src="images/roomview.png" alt="Cozy Cabin" style="width: 70%;">
                 <figcaption>Image from <a href="https://www.artfulliving.com/montenegro-new-french-riviera/">ArtfulLiving</a></figcaption>
             </figure>
             <figure>
-            <img src="mountview.png" alt="Mountain View" style="width: 70%;">
+            <img src="images/mountview.png" alt="Mountain View" style="width: 70%;">
                 <figcaption>Image from <a href="https://www.visitglacierbay.com/lodging-camping/glacier-bay-lodge/">VisitGlacierBay</a></figcaption>
             </figure>
         </div>
@@ -52,7 +52,7 @@
     <footer>
         <div class="footer-content">
             <div>
-                <p><img src="logo.png" alt="Moffat Bay Logo" width="60px" style="vertical-align: middle;"><b>Moffat Bay Resort</b></p>
+                <p><img src="images/logo.png" alt="Moffat Bay Logo" width="60px" style="vertical-align: middle;"><b>Moffat Bay Resort</b></p>
                 <p>1234 Body of Water St</p>
                 <p>Anytown, Anystate 12345</p>
                 <p>(123) 456-7890</p>

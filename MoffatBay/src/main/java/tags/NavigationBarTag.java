@@ -1,9 +1,6 @@
 package tags;
 
 import java.io.IOException;
-import jakarta.servlet.jsp.JspException;
-import jakarta.servlet.jsp.JspWriter;
-import jakarta.servlet.jsp.tagext.SimpleTagSupport;
 
 import jakarta.servlet.jsp.JspWriter;
 import jakarta.servlet.jsp.PageContext;
@@ -38,14 +35,14 @@ public class NavigationBarTag extends SimpleTagSupport {
 		String opening = """
 				<div class="navbar">
 					<div class="logo">
-		                <a href="index.jsp"><img src="logo.png" alt="Moffat Bay Logo"></a>
+		                <a href="index.jsp"><img src="images/logo.png" alt="Moffat Bay Logo"></a>
 		                <a href="index.jsp">Moffat Bay <br>Resort</a>
 		            </div>
 		            <div class="navlink">
 		                <a href="reservation.jsp">Book Your <br>Vacation</a>
 		                <a href="viewReservations.jsp">View Your <br>Reservation</a>
 		                <a href="#">Attractions</a>
-		                <a href="#">About Us</a>
+		                <a href="about.jsp">About Us</a>
 		                <a href="#">Contact Us</a>
 		            </div>
 		            <div class="navbutton">
