@@ -200,3 +200,20 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: #45a049;
 }
+
+.search-container {
+	display: flex;
+	justify-content: space-around;
+	max-width: 800px;
+	margin: 0px auto;
+	flex-wrap: wrap;
+}
+
+.search-container input {
+	width: auto;
+}
+
+.search-container label {
+	width: auto;
+	display: inline;
+}

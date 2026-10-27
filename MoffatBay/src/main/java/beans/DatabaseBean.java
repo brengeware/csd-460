@@ -265,6 +265,19 @@ public class DatabaseBean implements Serializable {
 		return preparedStatement.executeQuery();
 	}
 	
+	// Same as getReservationsByUser, but also requires a reservation ID
+	public ResultSet getReservationByUserAndID(int userID, int reservationID) throws SQLException {
+		String queryString = """
+				SELECT reservation_id, guest_count, check_in_date, check_out_date, name, price
+				FROM reservations INNER JOIN users ON users.user_id = reservations.user_id INNER JOIN room_sizes ON room_sizes.size_id = reservations.size_id
+				WHERE reservations.user_id = ? AND reservations.reservation_id = ?;""";
+
+		PreparedStatement preparedStatement = connection.prepareStatement(queryString);
+		preparedStatement.setInt(1,  userID);
+		preparedStatement.setInt(2, reservationID);
+		return preparedStatement.executeQuery();
+	}
+	
 	// Deletes a reservation according to the specified ID
 	// Returns true for a successful deletion and false otherwise
 	public boolean deleteReservationByID(int reservationID) {

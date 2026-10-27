@@ -26,23 +26,41 @@ JSP page that shows all of the logged in user's reservations -->
 	if (database.connectToDatabase()) {
 		try {
 			int userID = database.getUserID((String) session.getAttribute("username"));
-			ResultSet reservations = database.getReservationsByUser(userID);
+			ResultSet reservations;
+			String reservationIDString = request.getParameter("reservationID");
 			
-			while (reservations.next()) {
-				LocalDate checkIn = reservations.getObject("check_in_date", LocalDate.class);
-				LocalDate checkOut = reservations.getObject("check_out_date", LocalDate.class);
-				long nights = ChronoUnit.DAYS.between(checkIn, checkOut);
-				BigDecimal price = reservations.getBigDecimal("price");
-				BigDecimal total = price.multiply(BigDecimal.valueOf(nights));
-				count++;
-				
-				rows.append("<tr><td>" + reservations.getInt("reservation_id") + "</td>");
-				rows.append("<td>" + escape(reservations.getString("name")) + "</td>");
-				rows.append("<td>" + checkIn + "</td>");
-				rows.append("<td>" + checkOut + "</td>");
-				rows.append("<td>" + nights + "</td>");
-				rows.append("<td>" + reservations.getInt("guest_count") + "</td>");
-				rows.append("<td>" + String.format("$%,.2f", total) + "</td></tr>\n");
+			// Gets all the user's reservations or the reservation matching the ID, depending on whether
+			// The user entered an ID
+			if (reservationIDString != null && !(reservationIDString.isBlank())) {
+				try {
+					int reservationID = Integer.parseInt(reservationIDString);
+					reservations = database.getReservationByUserAndID(userID, reservationID);
+				} catch (NumberFormatException e) {
+					reservations = null;
+					errorMessage = "Please enter a numeric ID";
+				}
+			} else {
+				reservations = database.getReservationsByUser(userID);
+			}
+			
+			// Creats a StringBuilder of reservations in tabular format
+			if (reservations != null) {
+				while (reservations.next()) {
+					LocalDate checkIn = reservations.getObject("check_in_date", LocalDate.class);
+					LocalDate checkOut = reservations.getObject("check_out_date", LocalDate.class);
+					long nights = ChronoUnit.DAYS.between(checkIn, checkOut);
+					BigDecimal price = reservations.getBigDecimal("price");
+					BigDecimal total = price.multiply(BigDecimal.valueOf(nights));
+					count++;
+					
+					rows.append("<tr><td>" + reservations.getInt("reservation_id") + "</td>");
+					rows.append("<td>" + escape(reservations.getString("name")) + "</td>");
+					rows.append("<td>" + checkIn + "</td>");
+					rows.append("<td>" + checkOut + "</td>");
+					rows.append("<td>" + nights + "</td>");
+					rows.append("<td>" + reservations.getInt("guest_count") + "</td>");
+					rows.append("<td>" + String.format("$%,.2f", total) + "</td></tr>\n");
+				}
 			}
 		} catch (SQLException e) {
 			errorMessage = "We could not load your reservations";
@@ -85,10 +103,19 @@ JSP page that shows all of the logged in user's reservations -->
 
 <div class="container">
     <h1>Your Reservations</h1>
+    <div class = "search-container">
+	    <form action="viewReservations.jsp" method = "POST">
+	    	<label for = "reservationID">Search by Reservation ID:</label>
+	    	<input type = "text" name = "reservationID" id = "reservationID"
+	    		value = "<%= request.getParameter("reservationID") == null ? "" : escape(request.getParameter("reservationID")) %>" autocomplete = "off">
+	    	<input type = "submit" value = "Search">
+	    	<input type = "submit" value = "View All" onclick = "document.getElementById('reservationID').value = '';"> <!-- Clears the reservation ID search before submitting -->
+	    </form>
+    </div>
 <% if (errorMessage != null) { %>
     <p style="color: red;"><%= errorMessage %></p>
 <% } else if (count == 0) { %>
-    <p>You do not have any reservations yet.</p>
+    <p>You do not have any reservations yet, or you entered an invalid ID</p>
 <% } else { %>
     <table class="reservation-table">
         <thead>
