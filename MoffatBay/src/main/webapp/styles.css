@@ -48,6 +48,7 @@ header img {
 }
 
 .navbar a:hover {
+    border-radius: 5px;
     background-color: #281e5d;
 }
 
@@ -148,9 +149,10 @@ hr {
 
 .form-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
     gap: 20px;
-    max-width: 800px;
+    max-width: 1000px;
     margin: 40px auto;
     padding: 20px;
     border: 1px solid #ccc;
@@ -159,6 +161,24 @@ hr {
     flex-wrap: wrap;
 }
 
+.contact-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin: 20px;
+    width: 100%;
+    border-radius: 8px;
+    flex-wrap: wrap;
+}
+
+.contact-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
 .form-column {
     flex: 1;
     display: flex;
