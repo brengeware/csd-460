@@ -41,7 +41,7 @@ public class NavigationBarTag extends SimpleTagSupport {
 		            <div class="navlink">
 		                <a href="reservation.jsp">Book Your <br>Vacation</a>
 		                <a href="viewReservations.jsp">View Your <br>Reservation</a>
-		                <a href="#">Attractions</a>
+		                <a href="attractions.jsp">Attractions</a>
 		                <a href="about.jsp">About Us</a>
 		                <a href="contact.jsp">Contact Us</a>
 		            </div>
