@@ -237,3 +237,82 @@ input[type="submit"]:hover {
 	width: auto;
 	display: inline;
 }
+
+.title-img-container{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.span-fig {
+    margin: 0;
+    width: 100%;
+}
+
+figure span {
+    display: block;
+    width: 100%;
+}
+
+.title-img {
+    display: block;
+    width: 100%;
+    height: 100px;
+}
+
+p.title-support {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.layout-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.layout-container-img {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 20px;
+}
+
+.col{
+    flex: 1;
+    padding: 30px 20px;
+    color: #333;
+}
+
+.row-2-col {
+    flex: 1;
+}
+
+.row-3-col {
+    flex: 1;
+	margin: 0 auto;
+}
+
+h2 {
+    text-align: center;
+}
+
+li {
+	list-style-type: none;
+}
+
+.row-3-col .image-container {
+	margin: 0 auto;
+}
