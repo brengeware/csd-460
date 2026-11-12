@@ -62,7 +62,7 @@
 
   <div class="title-img-container">
     <figure class="span-fig"><span>
-      <img src="images/sunhands.png" alt="sunset hands" class="title-img" style="min-height: 250px; object-fit: cover;">
+      <img src="images/sunhands.png" alt="sunset hands" class="title-img" style="min-height: 250; object-fit: cover;">
         <figcaption style="text-align: center">Image from <a href="https://www.vecteezy.com/photo/47997008-hands-forming-heart-sunset-background">Vecteezy</a></figcaption>
       </span></figure>
   </div>
